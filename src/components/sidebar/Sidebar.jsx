@@ -1,5 +1,7 @@
 import "./sidebar.css"
 import {RssFeed,Group,ChatBubble, Event,School, Bookmark, HelpOutline, PlayCircleFilledOutlined, WorkOutline } from "@mui/icons-material";
+import {Users} from "../../dummyData"
+import CloseFriend from "../CloseFriend/CloseFriend";
 
 
 export default function Sidebar() {
@@ -65,60 +67,9 @@ export default function Sidebar() {
         <button className="sidebarButton"> Show more</button>
       <hr className="sidebarHr"/>
       <ul className="sidebarFriendList">
-        <li className="sidebarFriend">
-          <img src="/assets/person/11.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            Akash Tale
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            shantanu Waghamare
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/12.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            om sore
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            shantanu Waghamare
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            shantanu Waghamare
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            shantanu Waghamare
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            shantanu Waghamare
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            shantanu Waghamare
-          </span>
-        </li>
-        <li className="sidebarFriend">
-          <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-          <span className="sidebarFriendName">
-            shantanu Waghamare
-          </span>
-        </li>
+       {Users.map(u=>(
+        <CloseFriend key={u.id} user={u}/>
+        ))}
       </ul>
       </div>
     </div>
