@@ -45,27 +45,27 @@ export default function Rightbar({ profile }) {
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
             <img
-              src="assets/person/1.jpeg"
+              src="assets/person/12.jpg"
               alt=""
               className="rightbarFollowingImg"
             />
-            <span className="rightbarFollowingName">John Carter</span>
+            <span className="rightbarFollowingName">om sore</span>
           </div>
           <div className="rightbarFollowing">
             <img
-              src="assets/person/2.jpeg"
+              src="assets/person/11.jpg"
               alt=""
               className="rightbarFollowingImg"
             />
-            <span className="rightbarFollowingName">John Carter</span>
+            <span className="rightbarFollowingName">akash tale</span>
           </div>
           <div className="rightbarFollowing">
             <img
-              src="assets/person/3.jpeg"
+              src="assets/person/2.jpg"
               alt=""
               className="rightbarFollowingImg"
             />
-            <span className="rightbarFollowingName">John Carter</span>
+            <span className="rightbarFollowingName">Shantanu Waghmare</span>
           </div>
           <div className="rightbarFollowing">
             <img
