@@ -15,12 +15,12 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src="assets/post/3.jpeg"
+                src={`${"http://localhost:3000/assets/"}person/2.jpg`}
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src="assets/person/1.png"
+                src={`${"http://localhost:3000/assets/"}person/1.png`}
                 alt=""
               />
             </div>

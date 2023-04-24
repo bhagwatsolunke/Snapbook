@@ -6,7 +6,7 @@ const userRoute = require("./routes/user")
 const authRoute = require("./routes/auth")
 const postRoute = require("./routes/posts");
 const app = express()
-const port = 3000
+const port = 4000
 
 async function startServer() {
   await connectToMongo();
