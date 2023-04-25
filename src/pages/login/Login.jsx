@@ -32,14 +32,14 @@ export default function Login() {
             <input placeholder="Password" type="password" minLength="6" required className="loginInput" ref={password} />
             <button className="loginButton" type="submit" disabled={isFetching}>
               {isFetching ? (
-                <CircularProgress color="white" size="20px" />
+                <CircularProgress color="success" size="20px" />
               ) : (
                 "Log In"
               )}
             </button>            <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton">
               {isFetching ? (
-                <CircularProgress color="white" size="20px" />
+                <CircularProgress color="success" size="20px" />
               ) : (
                 "Create a New Account"
               )}
