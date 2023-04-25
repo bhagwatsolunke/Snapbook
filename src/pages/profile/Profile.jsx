@@ -1,11 +1,11 @@
 import "./profile.css";
-import Feed from "../../../components/feed/Feed";
-import Rightbar from "../../../components/rightbar/Rightbar";
-import Topbar from "../../../components/topbar/Topbar";
-import Sidebar from "../../../components/sidebar/Sidebar";
+import Feed from "../../components/feed/Feed";
+import Rightbar from "../../components/rightbar/Rightbar";
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {useParams} from "react-router"
+import {useParams } from "react-router"
 
 export default function Profile() {
   const [user,setUser] = useState({});
@@ -29,12 +29,12 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={user.coverPicture || `${"http://localhost:3000/assets/"}person/noCover.jpg`  }
+                src={user.coverPicture || `${"http://localhost:4000/images/"}person/noCover.png`  }
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src={user.profilePicture || `${"http://localhost:3000/assets/"}person/noProfile.jpg`  }               
+                src={user.profilePicture || `${"http://localhost:4000/images/"}person/noProfile.jpg`  }               
                  alt=""
               />
             </div>

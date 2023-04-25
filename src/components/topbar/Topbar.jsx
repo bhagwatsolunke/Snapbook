@@ -41,7 +41,7 @@ const {user}= useContext (AuthContext);
           </div>
         </div>
         <Link to ={`/profile/${user.username}`}>
-        <img src= {user.profilePicture ? "http://localhost:3000/assets/"+user.profilePicture : "http://localhost:3000/assets/"+"person/noProfile.jpg"  }   alt="" className="topbarImg" />
+        <img src= {user.profilePicture ? "http://localhost:4000/images/"+user.profilePicture : "http://localhost:4000/images/"+"person/noProfile.jpg"  }   alt="" className="topbarImg" />
         </Link>
       </div>
     </div>
