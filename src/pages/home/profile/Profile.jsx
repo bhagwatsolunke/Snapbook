@@ -34,7 +34,8 @@ export default function Profile() {
               />
               <img
                 className="profileUserImg"
-                src={user.profilePicture || `${"http://localhost:3000/assets/"}person/noProfile.jpg`  }                alt=""
+                src={user.profilePicture || `${"http://localhost:3000/assets/"}person/noProfile.jpg`  }               
+                 alt=""
               />
             </div>
             <div className="profileInfo">
