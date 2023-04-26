@@ -1,11 +1,17 @@
 import "./topbar.css";
-import {Search,Person,Chat,Notifications} from "@mui/icons-material";
-import { useContext } from "react";
+import {Search,Person,Chat} from "@mui/icons-material";
+import { useContext  } from "react";
 import {Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Topbar() {
 const {user}= useContext (AuthContext);
+
+ const handleLogout =()=>{
+        localStorage.removeItem('user');
+        window.location.reload();
+    }
 
   return (
     <div className="topbarContainer">
@@ -35,10 +41,9 @@ const {user}= useContext (AuthContext);
          <Chat/>
          <span className="topbarIconBadge">2</span>
           </div>
-          <div className="topbarIconsItem">
-         <Notifications/>
-         <span className="topbarIconBadge">1</span>
-          </div>
+          <div className="topbarIconsItem"  onClick={handleLogout} >
+         <LogoutIcon/>
+        </div>
         </div>
         <Link to ={`/profile/${user.username}`}>
         <img src= {user.profilePicture ? "http://localhost:4000/images/"+user.profilePicture : "http://localhost:4000/images/"+"person/noProfile.jpg"  }   alt="" className="topbarImg" />

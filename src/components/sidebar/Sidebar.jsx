@@ -36,19 +36,14 @@ export default function Sidebar() {
           <li className="sidebarListItem">
         <Bookmark className="sidebarIcon"/>
         <span className="sidebarListItemText">
-          Bookmarks
+        Favourite
         </span>
           </li>
-          <li className="sidebarListItem">
-        <HelpOutline className="sidebarIcon"/>
-        <span className="sidebarListItemText">
-          Questions
-        </span>
-          </li>
+          
           <li className="sidebarListItem">
         <WorkOutline className="sidebarIcon"/>
         <span className="sidebarListItemText">
-          Jobs
+          Work for Us
         </span>
           </li>
           <li className="sidebarListItem">
@@ -57,12 +52,7 @@ export default function Sidebar() {
           Events
         </span>
           </li>
-          <li className="sidebarListItem">
-        <School className="sidebarIcon"/>
-        <span className="sidebarListItemText">
-          Courses
-        </span>
-          </li>
+         
         </ul>
         <button className="sidebarButton"> Show more</button>
       <hr className="sidebarHr"/>

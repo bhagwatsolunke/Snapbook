@@ -9,6 +9,7 @@ export default function Register() {
   const password = useRef();
   const passwordAgain = useRef();
   const navigate = useNavigate();
+ 
 
 
 
@@ -30,6 +31,12 @@ export default function Register() {
       }
     }
   };
+
+  const handleOnClick = () => {
+    navigate("/login"); // replace '/' with the home page URL
+  };
+
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -46,7 +53,7 @@ export default function Register() {
             <input placeholder="Password"  required  ref={password}  className="loginInput"  type="password"  minLength="6" />
             <input  placeholder="Password Again"  required  ref={passwordAgain}  className="loginInput"  type="password" />
             <button className="loginButton" type="submit">  Sign Up   </button>
-            <button className="loginRegisterButton">Log into Account</button>
+            <button className="loginRegisterButton"  onClick={handleOnClick} >Log into Account</button>
           </form>
         </div>
       </div>

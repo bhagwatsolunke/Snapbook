@@ -3,12 +3,14 @@ import { useRef ,useContext } from "react";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@mui/material";
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Login() {
   const email = useRef();
   const password = useRef();
   const { isFetching, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -17,6 +19,13 @@ export default function Login() {
       dispatch
     );
   };
+
+  
+  const handleOnClick = () => {
+    navigate("/register"); // replace '/' with the home page URL
+  };
+
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -37,7 +46,7 @@ export default function Login() {
                 "Log In"
               )}
             </button>            <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
+            <button className="loginRegisterButton" onClick={handleOnClick} >
               {isFetching ? (
                 <CircularProgress color="success" size="20px" />
               ) : (
