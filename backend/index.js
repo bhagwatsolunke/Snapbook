@@ -19,24 +19,28 @@ async function startServer() {
 
 app.use(express.json());
 app.use(helmet());
-app.use(morgan("combined"));
+app.use(morgan("common"));
  
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/images");
+    cb(null, path.join(__dirname, "public/images"));
   },
   filename: (req, file, cb) => {
+    console.log(file)
     cb(null, req.body.name);
   },
 });
 
 
-const upload = multer({storage});
+const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"),(req,res)=>{
   try {
+    console.log("File uploded successfully")
     return res.status(200).json("File uploded successfully");
   } catch (error) {
     console.error(error);
+    console.log("File  not uploded ")
+
   }
 })
 
