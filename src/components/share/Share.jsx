@@ -1,9 +1,14 @@
 import "./share.css";
-import {PermMedia, Label,Room, EmojiEmotions, Cancel } from "@mui/icons-material"
+import {
+  PermMedia,
+  Label,
+  Room,
+  EmojiEmotions,
+  Cancel,
+} from "@mui/icons-material";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-
 
 export default function Share() {
   const { user } = useContext(AuthContext);
@@ -33,26 +38,33 @@ export default function Share() {
     } catch (err) {}
   };
 
-
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src={user.profilePicture ? "http://localhost:4000/images/"+user.profilePicture : "http://localhost:4000/images/"+"person/noProfile.jpg"  }  alt="" />
+          <img
+            className="shareProfileImg"
+            src={
+              user.profilePicture
+                ? `http://localhost:4000/images/${user.profilePicture}`
+                : "http://localhost:4000/images/person/noProfile.jpg"
+            }
+            alt=""
+          />
           <input
             placeholder={"What's in your mind " + user.username + "?"}
             className="shareInput"
             ref={desc}
           />
         </div>
-        <hr className="shareHr"/>
+        <hr className="shareHr" />
         {file && (
           <div className="shareImgContainer">
             <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
             <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
           </div>
         )}
-         <form className="shareBottom" onSubmit={submitHandler}>
+        <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <label htmlFor="file" className="shareOption">
               <PermMedia htmlColor="tomato" className="shareIcon" />

@@ -6,25 +6,14 @@ import {format} from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-export default function Post({ post, onDelete }) {
+export default function Post({ post }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
   const { user: currentUser } = useContext(AuthContext);
  
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   
-  const handleDelete = async () => {
-    setIsLoading(true);
-    try {
-      await axios.delete(`/api/posts/${post._id}`);
-      onDelete(post._id);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
 
   useEffect(() => {
     setIsLiked(post.likes.includes(currentUser._id));
@@ -51,6 +40,21 @@ export default function Post({ post, onDelete }) {
       console.log(error);
     }
   };
+
+  // const handleDelete = async () => {
+  //   setIsLoading(true);
+  //   try {
+  //     await axios.delete(`/posts/${post._id}`, { userId: currentUser._id });
+  //     console.log("deleted"); 
+  //    } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setIsLoading(false);
+  //     window.location.reload();
+    
+  //      }
+  // };
+
 
   return (
     <div className="post">
@@ -93,9 +97,9 @@ export default function Post({ post, onDelete }) {
             </div>
             <div className="postBottomLeft">
             <span className="postCommentText"> {post.comment} Comments</span>
-            <button onClick={handleDelete} disabled={isLoading}>
+            {/* <button onClick={handleDelete} disabled={isLoading}>
         {isLoading ? "Deleting..." : "Delete"}
-      </button>
+      </button> */}
             </div>
         </div>
       </div>
