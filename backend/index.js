@@ -5,6 +5,8 @@ const morgan = require ("morgan");
 const userRoute = require("./routes/user")
 const authRoute = require("./routes/auth")
 const postRoute = require("./routes/posts");
+const conversationRoute = require("./routes/conversation");
+const messagesRoute = require("./routes/messages");
 const app = express()
 const port = 4000
 const multer = require("multer")
@@ -48,7 +50,8 @@ app.post("/api/upload", upload.single("file"),(req,res)=>{
  app.use("/api/users", userRoute);
  app.use("/api/auth", authRoute);
  app.use("/api/posts", postRoute);
-
+ app.use("/api/conversations", conversationRoute);
+ app.use("/api/messages",messagesRoute);
   app.listen(port, () => {
     console.log(`Socialmedia Backend listening at http://localhost:${port}`);
   });
