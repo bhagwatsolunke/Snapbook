@@ -4,13 +4,12 @@ import axios from "axios";
 
 export default function Conversation({ conversation, currentUser }) {
   const [user, setUser] = useState(null);
-
   useEffect(() => {
     const friendId = conversation.members.find((m) => m !== currentUser._id);
 
     const getUser = async () => {
       try {
-        const res = await axios("/users?userId" + friendId);
+        const res = await axios("/users?userId="+friendId);
         setUser(res.data);
       } catch (err) {
         console.log(err);
@@ -20,16 +19,20 @@ export default function Conversation({ conversation, currentUser }) {
   }, [currentUser, conversation]);
   return (
     <div className="conversation">
-      <img
-        className="conversationImg"
-        src={
-          user.profilePicture
-            ? `http://localhost:4000/images/${user.profilePicture}`
-            : "http://localhost:4000/images/person/noProfile.jpg"
-        }
-        alt=""
-      />
-      <span className="conversationName">{user.username}</span>
-    </div>
+    {user && (
+      <>
+        <img
+          className="conversationImg"
+          src={
+            user.profilePicture
+              ? `http://localhost:4000/images/${user.profilePicture}`
+              : "http://localhost:4000/images/person/noProfile.jpg"
+          }
+          alt=""
+        />
+        <span className="conversationName">{user.username}</span>
+      </>
+    )}
+  </div>
   );
 }

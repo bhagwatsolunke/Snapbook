@@ -24,6 +24,7 @@ router.get("/:userId", async (req, res) => {
       members: { $in: [req.params.userId] },
     });
     res.status(200).json(conversation);
+    
   } catch (err) {
     res.status(500).json(err);
   }
