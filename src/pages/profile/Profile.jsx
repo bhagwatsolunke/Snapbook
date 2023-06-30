@@ -29,14 +29,18 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={user.coverPicture || `${"http://localhost:4000/images/"}person/noCover.png`  }
+                src={user.coverPicture || `${"http://localhost:4000/"}person/noCover.png`  }
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src={user.profilePicture || `${"http://localhost:4000/images/"}person/noProfile.jpg`  }               
-                 alt=""
+                src={
+                  user.profilePicture
+                    ? `http://localhost:4000/${user.profilePicture}`
+                    : "http://localhost:4000/person/noProfile.jpg"
+                }                 alt=""
               />
+              
             </div>
             <div className="profileInfo">
                 <h4 className="profileInfoName">{user.username}</h4>

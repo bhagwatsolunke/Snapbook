@@ -6,7 +6,7 @@ export default function CloseFriend({user}) {
   return (
     <div>
       <li className="sidebarFriend">
-        <img src={"http://localhost:4000/images/"+ user.profilePicture} alt="" className="sidebarFriendImg" />
+        <img src={"http://localhost:4000/"+ user.profilePicture} alt="" className="sidebarFriendImg" />
         <span className="sidebarFriendName">{user.username}</span>
       </li>
     </div>

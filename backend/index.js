@@ -15,7 +15,7 @@ const path = require("path");
 async function startServer() {
   await connectToMongo();
  
-  app.use("/images", express.static(path.join(__dirname, "public/images")));
+  app.use("/", express.static(path.join(__dirname, "public")));
   //middleware
 
 
@@ -25,7 +25,7 @@ app.use(morgan("common"));
  
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "public/images"));
+    cb(null, path.join(__dirname, "public"));
   },
   filename: (req, file, cb) => {
     console.log(file)

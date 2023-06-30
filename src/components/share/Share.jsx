@@ -46,8 +46,8 @@ export default function Share() {
             className="shareProfileImg"
             src={
               user.profilePicture
-                ? `http://localhost:4000/images/${user.profilePicture}`
-                : "http://localhost:4000/images/person/noProfile.jpg"
+                ? `http://localhost:4000/${user.profilePicture}`
+                : "http://localhost:4000/person/noProfile.jpg"
             }
             alt=""
           />

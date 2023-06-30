@@ -27,6 +27,8 @@ function App() {
         <Route path="/register" element={user ? <Navigate replace to="/" /> : <Register />} />
         <Route path="/messenger" element={!user ? <Navigate replace to="/" /> : <Messenger />} />
         <Route path="/profile/:username" element={<Profile />} />
+        <Route path="/messenger" element={<Messenger />} />
+
       </Routes>
     </Router>
   );

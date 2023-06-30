@@ -66,8 +66,8 @@ export default function Post({ post }) {
                 className="postProfileImg"
                 src={
                   user.profilePicture
-                    ? `http://localhost:4000/images/${user.profilePicture}`
-                    : "http://localhost:4000/images/person/noProfile.jpg"
+                    ? `http://localhost:4000/${user.profilePicture}`
+                    : "http://localhost:4000/person/noProfile.jpg"
                 }
                 alt={`${user.username}'s profile picture`}
               />
@@ -84,15 +84,15 @@ export default function Post({ post }) {
           <span className="postText">{post?.desc} </span>
           <img
             className="postImg"
-            src={`http://localhost:4000/images/${post.img}`}
+            src={`http://localhost:4000/${post.img}`}
             alt={`${user.username}'s post`}
           />
         </div>
 
         <div className="postBottom">
             <div className="postBottomLeft">
-                <img className="likeIcon" src={`${"http://localhost:4000/images/"}like.png`} onClick={likeHandler} alt="" />
-                <img className="likeIcon" src={`${"http://localhost:4000/images/"}heart.png`} onClick={likeHandler} alt="" />
+                <img className="likeIcon" src={`${"http://localhost:4000/"}like.png`} onClick={likeHandler} alt="" />
+                <img className="likeIcon" src={`${"http://localhost:4000/"}heart.png`} onClick={likeHandler} alt="" />
                  <span className="postLikeCounter">{like} people liked it</span>
             </div>
             <div className="postBottomLeft">

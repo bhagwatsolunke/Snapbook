@@ -48,7 +48,7 @@ export default function Rightbar({ user }) {
     return (
       <>
         <div className="birthdayContainer">
-          <img className="birthdayImg" src={`${"http://localhost:4000/images/"}gift.png`} alt="" />
+          <img className="birthdayImg" src={`${"http://localhost:4000/"}gift.png`} alt="" />
           <span className="birthdayText">
             <b>ram shinde </b> and <b>3 other friends</b> have a birhday today.
           </span>
@@ -107,8 +107,8 @@ export default function Rightbar({ user }) {
                 <img
                   src={
                     friend.profilePicture
-                      ? "http://localhost:4000/images/" + friend.profilePicture
-                      : "http://localhost:4000/images/" + "person/noProfile.jpg"
+                      ? "http://localhost:4000/" + friend.profilePicture
+                      : "http://localhost:4000/" + "person/noProfile.jpg"
                   }
                   alt=""
                   className="rightbarFollowingImg"

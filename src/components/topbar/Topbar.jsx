@@ -42,7 +42,9 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
           <div className="topbarIconsItem">
+          <Link to={`/messenger`}>
             <Chat />
+            </Link>
             <span className="topbarIconBadge">2</span>
           </div>
           <div className="topbarIconsItem" onClick={handleLogout}>
@@ -53,8 +55,8 @@ export default function Topbar() {
           <img
             src={
               user.profilePicture
-                ? `http://localhost:4000/images/${user.profilePicture}`
-                : "http://localhost:4000/images/person/noProfile.jpg"
+                ? `http://localhost:4000/${user.profilePicture}`
+                : "http://localhost:4000/person/noProfile.jpg"
             }
             alt=""
             className="topbarImg"

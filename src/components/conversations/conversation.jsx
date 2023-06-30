@@ -25,8 +25,8 @@ export default function Conversation({ conversation, currentUser }) {
           className="conversationImg"
           src={
             user.profilePicture
-              ? `http://localhost:4000/images/${user.profilePicture}`
-              : "http://localhost:4000/images/person/noProfile.jpg"
+              ? `http://localhost:4000/${user.profilePicture}`
+              : "http://localhost:4000/person/noProfile.jpg"
           }
           alt=""
         />
