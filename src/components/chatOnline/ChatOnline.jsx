@@ -1,20 +1,59 @@
+import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext, useEffect, useState } from "react";
 import "./chatOnline.css";
 
-import React from "react";
+export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
+  const [friends, setFriends] = useState([]);
+  const [onlineFriends, setOnlineFriends] = useState([]);
+  const { user } = useContext(AuthContext);
 
-export default function ChatOnline() {
+  useEffect(() => {
+    const getFriends = async () => {
+      const res = await axios.get("/users/friends/" + currentId);
+      setFriends(res.data);
+    };
+
+    getFriends();
+  }, [currentId]);
+
+  console.log(friends);
+  
+
+  useEffect(() => {
+    setOnlineFriends(friends.filter((f) => onlineUsers.includes(f._id)));
+  }, [friends, onlineUsers]);
+
+  const handleClick = async (user) => {
+    try {
+      const res = await axios.get(
+        `/conversations/find/${currentId}/${user._id}`
+      );
+      setCurrentChat(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="chatOnline">
-      <div className="chatOnlineFriend">
-        <div className="chatOnlineImgContainer">
-          <img  className="chatOnlineImg"
-            src="https://e0.pxfuel.com/wallpapers/239/709/desktop-wallpaper-beautiful-itachi-this-week-itachi-face.jpg"
-            alt=""
-          />
-          <div className="chatOnlineBadge"></div>
+      {onlineFriends.map((o) => (
+        <div className="chatOnlineFriend" onClick={() => handleClick(o)}>
+          <div className="chatOnlineImgContainer">
+            <img
+              className="chatOnlineImg"
+              src={
+                o.profilePicture
+                  ? `http://localhost:4000/${user.profilePicture}`
+                  : "http://localhost:4000/person/noProfile.jpg"
+              }      
+              alt=""
+            />
+            <div className="chatOnlineBadge"></div>
+          </div>
+          <span className="chatOnlineName">{o?.username}</span>
         </div>
-        <span className="chatOnlineName">vijay shinde</span>
-      </div>
+      ))}
     </div>
   );
 }
