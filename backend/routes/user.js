@@ -43,7 +43,7 @@ router.delete("/:id", async (req, res) => {
 
 //get friends
 router.get("/friends/:userId", async (req, res) => {
-  const userId = req.query.userId;
+  const userId = req.params.userId;
   try {
     const user = await User.findById(userId);
     const friends = await Promise.all(

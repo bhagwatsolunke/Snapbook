@@ -18,6 +18,7 @@ export default function Conversation({ conversation, currentUser }) {
     getUser();
   }, [currentUser, conversation]);
   return (
+    <>
     <div className="conversation">
     {user && (
       <>
@@ -34,5 +35,6 @@ export default function Conversation({ conversation, currentUser }) {
       </>
     )}
   </div>
+  </>
   );
 }
