@@ -1,13 +1,41 @@
 import "./topbar.css";
+import React, { useState, useContext } from "react"; // Import useState
 import { Search, Person, Chat } from "@mui/icons-material";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
 import { AuthContext } from "../../context/AuthContext";
 import LogoutIcon from "@mui/icons-material/Logout";
-
+import axios from 'axios'; 
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
+  const [searchInput, setSearchInput] = useState("");
+  const navigate = useNavigate();
+
+
+  const handleSearch = async () => {
+    if (searchInput) {
+      try {
+        const response = await axios.get(`/users?username=${searchInput}`);
+        
+        if (response.status === 200) {
+          // User found, navigate to their profile
+          navigate(`/profile/${searchInput}`);
+          setSearchInput(""); // Clear the search input field.
+        } else if (response.status === 404) {
+          // User not found, handle accordingly
+          console.log("User not found");
+        }
+      } catch (error) {
+        console.error("Error searching for user:", error);
+      }
+    }
+  };
+
+  // Event handler for the search input field.
+  const handleInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -23,13 +51,16 @@ export default function Topbar() {
         </Link>
       </div>
       <div className="topbarCenter">
-        <div className="searchbar">
+      <div className="searchbar">
           <Search className="searchIcon" />
           <input
-            placeholder="Search for friend, post or video"
+            placeholder="Search for friend"
             className="searchInput"
+            value={searchInput}
+            onChange={handleInputChange}
           />
-        </div>
+          <button className="button-24" onClick={handleSearch}>Search</button>
+          </div>
       </div>
       <div className="topbarRight">
         <div className="topbarLink">
