@@ -1,5 +1,4 @@
 import "./rightbar.css";
-import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -10,9 +9,17 @@ import { Add, Remove } from "@mui/icons-material";
 export default function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
-  const [followed, setFollowed] = useState(
-    currentUser.followings.includes(user?.id)
-  );
+  const [followed, setFollowed] = useState(false);
+
+
+useEffect(() => {
+  // Check if currentUser and its followings are defined before checking if the user is followed.
+  if (currentUser && currentUser.followings) {
+    setFollowed(currentUser.followings.includes(user?.id));
+  }
+}, [currentUser, user]);
+
+
 
   useEffect(() => {
     const getFriends = async () => {
@@ -56,9 +63,7 @@ export default function Rightbar({ user }) {
         <img className="rightbarAd" src="assets/ad.png" alt="" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          {Users.map((u) => (
-            <Online key={u.id} user={u} />
-          ))}
+        <Online/>
         </ul>
       </>
     );

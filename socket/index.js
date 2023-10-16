@@ -23,11 +23,16 @@ io.on("connection", (socket) => {
   //when ceonnect
   console.log("a user connected.");
 
+
+
+  
   //take userId and socketId from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
     io.emit("getUsers", users);
   });
+
+
 
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
@@ -37,6 +42,8 @@ io.on("connection", (socket) => {
       text,
     });
   });
+
+
 
   //when disconnect
   socket.on("disconnect", () => {

@@ -1,5 +1,5 @@
 import "./sidebar.css"
-import {RssFeed,Group,ChatBubble, Event,School, Bookmark, HelpOutline, PlayCircleFilledOutlined, WorkOutline } from "@mui/icons-material";
+import {RssFeed,Group,ChatBubble, Event, Bookmark,  PlayCircleFilledOutlined, WorkOutline } from "@mui/icons-material";
 import {Users} from "../../dummyData"
 import CloseFriend from "../CloseFriend/CloseFriend";
 
