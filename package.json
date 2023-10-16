@@ -45,5 +45,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4000/api"
+  "proxy": "http://localhost:4000/api",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
 }

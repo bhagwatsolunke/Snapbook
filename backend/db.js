@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const mongoURI = "mongodb://127.0.0.1:27017/Socialmedia?directConnection=true";
+// const mongoURI = "mongodb://127.0.0.1:27017/Socialmedia?directConnection=true";
+const mongoURI=`mongodb+srv://bhagwatsolunke007:9959233110@cluster0.0z3d9mr.mongodb.net/snapbook`
 
 const connectToMongo = () => {
   return new Promise((resolve, reject) => {
