@@ -7,8 +7,12 @@ export default function Message({ message, own }) {
          <div className="messageTop">
         <img
           className="messageImg"
-          src="https://e0.pxfuel.com/wallpapers/239/709/desktop-wallpaper-beautiful-itachi-this-week-itachi-face.jpg"
-          alt=""
+          src={
+            message.img
+              ? `http://localhost:4000/${message.img}`
+              : "http://localhost:4000/person/noProfile.jpg"
+          }
+         alt=""
         />
         <p className="messageText">{message.text}</p>
       </div>

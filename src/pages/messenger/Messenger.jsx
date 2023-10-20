@@ -74,6 +74,7 @@ export default function Messenger() {
     const message = {
       sender: user._id,
       text: newMessage,
+      img: user.profilePicture,
       conversationId: currentChat._id,
     };
     const receiverId = currentChat.members.find(

@@ -10,6 +10,10 @@ const MessageSchema = new mongoose.Schema(
     },
     text:{
         type : String,
+    },
+    img: {
+      type: String,
+      data: Buffer,
     }
   },
   {timestamps:true}
